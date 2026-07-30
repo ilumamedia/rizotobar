@@ -15,6 +15,7 @@
 <script src="./image-slot.js"></script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { overflow-x: hidden; }
   body { background: #ddd7cb; }
   a { color: inherit; text-decoration: none; }
   a:hover { color: inherit; }
@@ -26,10 +27,10 @@
 </style>
 </helmet>
 
-<div style="font-family: 'Cormorant Garamond', Georgia, serif; color: #262019; background: #f2efe8; overflow-x: hidden; width: 100%; max-width: 375px; margin: 0 auto; position: relative;">
+<div style="font-family: 'Cormorant Garamond', Georgia, serif; color: #262019; background: #f2efe8; overflow-x: hidden; width: 100%; max-width: none; margin: 0 auto; position: relative;">
 
   <!-- ===== FIXED TOP BAR ===== -->
-  <nav style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 100; width: 100%; max-width: 375px; display: flex; align-items: center; justify-content: space-between; padding: 8px 20px; color: #f4f0e9; background: rgba(41,36,31,.4); backdrop-filter: blur(6px);">
+  <nav style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 100; width: 100%; max-width: none; display: flex; align-items: center; justify-content: space-between; padding: 8px 20px; color: #f4f0e9; background: rgba(41,36,31,.4); backdrop-filter: blur(6px);">
     <a href="#top" style="display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid rgba(244,240,233,.75); border-radius: 50%; overflow: hidden;">
       <img src="./images/rizoto-logo.png" alt="Rižoto Bar" style="width: 132%; height: 132%; object-fit: contain;">
     </a>
@@ -41,7 +42,7 @@
   </nav>
 
   <!-- ===== SLIDE-DOWN MENU ===== -->
-  <div style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 90; width: 100%; max-width: 375px; height: 100vh; background: rgba(41,36,31,.97); display: flex; flex-direction: column; justify-content: center; padding: 0 40px; gap: 32px; transition: opacity .35s ease, visibility .35s ease; opacity: {{ menuOpacity }}; visibility: {{ menuVisibility }};">
+  <div style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 90; width: 100%; max-width: none; height: 100vh; background: rgba(41,36,31,.97); display: flex; flex-direction: column; justify-content: center; padding: 0 40px; gap: 32px; transition: opacity .35s ease, visibility .35s ease; opacity: {{ menuOpacity }}; visibility: {{ menuVisibility }};">
     <a href="#about" onClick="{{ closeMenu }}" class="lbl" style="font-family: 'Bebas Neue', sans-serif; font-size: 40px; letter-spacing: 0.04em; color: #f4f0e9;">O nama</a>
     <a href="meni-mobile.html" class="lbl" style="font-family: 'Bebas Neue', sans-serif; font-size: 40px; letter-spacing: 0.04em; color: #f4f0e9;">Meni</a>
     <a href="#space" onClick="{{ closeMenu }}" class="lbl" style="font-family: 'Bebas Neue', sans-serif; font-size: 40px; letter-spacing: 0.04em; color: #f4f0e9;">Galerija</a>
@@ -91,28 +92,28 @@
   <section id="menu" style="padding: 72px 24px; background-color: #F2EFE8;">
     <h2 data-reveal="" style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 54px; letter-spacing: 0.04em; color: #29241F; text-align: center; margin-bottom: 40px; opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease;">MENI</h2>
     <div data-stagger-group="" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px 18px;">
-      <a data-reveal-item="" href="meni-mobile.html#dorucak" style="display: flex; flex-direction: column; opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease;">
+      <a data-reveal-item="" href="meni-mobile.html#dorucak" style="display: flex; flex-direction: column; opacity: 0; transition: opacity .7s ease;">
         <div style="width: 100%; aspect-ratio: 1;">
           <image-slot id="m-menu-dorucak" shape="rect" fit="cover" placeholder="Doručak" src="./images/xx-ms5xf0m4-ji8v.jpg"></image-slot>
         </div>
         <h3 class="lbl" style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.04em; color: #29241F; margin-top: 14px;">Doručak</h3>
         <span class="lbl" style="margin-top: 8px; font-size: 9px; color: #8a8175; border-bottom: 1px solid #b8b0a4; padding-bottom: 3px; align-self: flex-start;">Pogledaj</span>
       </a>
-      <a data-reveal-item="" href="meni-mobile.html#rizota" style="display: flex; flex-direction: column; opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease;">
+      <a data-reveal-item="" href="meni-mobile.html#rizota" style="display: flex; flex-direction: column; opacity: 0; transition: opacity .7s ease;">
         <div style="width: 100%; aspect-ratio: 1;">
           <image-slot id="m-menu-rizoto" shape="rect" fit="cover" placeholder="Rižota" src="./images/untitled-ms5xakyf-ondj.jpg"></image-slot>
         </div>
         <h3 class="lbl" style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.04em; color: #29241F; margin-top: 14px;">Rižoto</h3>
         <span class="lbl" style="margin-top: 8px; font-size: 9px; color: #8a8175; border-bottom: 1px solid #b8b0a4; padding-bottom: 3px; align-self: flex-start;">Pogledaj</span>
       </a>
-      <a data-reveal-item="" href="meni-mobile.html#lazanje" style="display: flex; flex-direction: column; opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease;">
+      <a data-reveal-item="" href="meni-mobile.html#lazanje" style="display: flex; flex-direction: column; opacity: 0; transition: opacity .7s ease;">
         <div style="width: 100%; aspect-ratio: 1;">
           <image-slot id="m-menu-lazanje" shape="rect" fit="cover" placeholder="Lazanje i potaži" src="./images/xxkjs-ms5xjd9z-l7ow.jpg"></image-slot>
         </div>
         <h3 class="lbl" style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.04em; color: #29241F; margin-top: 14px;">Lazanje i potaži</h3>
         <span class="lbl" style="margin-top: 8px; font-size: 9px; color: #8a8175; border-bottom: 1px solid #b8b0a4; padding-bottom: 3px; align-self: flex-start;">Pogledaj</span>
       </a>
-      <a data-reveal-item="" href="meni-mobile.html#dezerti" style="display: flex; flex-direction: column; opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease;">
+      <a data-reveal-item="" href="meni-mobile.html#dezerti" style="display: flex; flex-direction: column; opacity: 0; transition: opacity .7s ease;">
         <div style="width: 100%; aspect-ratio: 1;">
           <image-slot id="m-menu-deserti" shape="rect" fit="cover" placeholder="Deserti" src="./images/ss-ms5xclo3-kgtd.jpg"></image-slot>
         </div>
