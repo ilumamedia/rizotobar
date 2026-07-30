@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(window.matchMedia&&window.matchMedia('(max-width:767px)').matches){location.replace('meni-mobile.html'+location.hash);}</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=Inter:wght@400;500&amp;family=Roboto+Condensed:wght@400;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #f2efe8; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: inherit; }
+  .lbl { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.22em; }
+  .rz-link { position: relative; }
+  .rz-link::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 1px; background: currentColor; transition: width .3s ease; }
+  .rz-link:hover::after { width: 100%; }
+  @keyframes heroZoom { from { transform: scale(1.14); } to { transform: scale(1); } }
+</style>
+</helmet>
+
+<div style="font-family: 'Inter', Arial, sans-serif; color: #29241F; background: #f2efe8; overflow-x: hidden;">
+
+  <!-- ===== HERO ===== -->
+  <section style="position: relative; height: 100vh; min-height: 680px; width: 100%; overflow: hidden;">
+    <div style="position: absolute; inset: 0; transform-origin: center center; animation: heroZoom 1.6s cubic-bezier(0.22,1,0.36,1) both;">
+      <image-slot id="menu-hero" shape="rect" fit="cover" placeholder="Hero — jelo ili enterijer"></image-slot>
+    </div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(115deg, rgba(30,26,21,.62) 0%, rgba(30,26,21,.3) 42%, rgba(30,26,21,.08) 75%, rgba(30,26,21,0) 100%); pointer-events: none;"></div>
+
+    <nav style="position: absolute; top: 0; left: 0; right: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 5px 52px; color: #f4f0e9; background: rgba(41,36,31,.32);">
+      <a href="index.html" style="display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border: 1px solid rgba(244,240,233,.75); border-radius: 50%; overflow: hidden;">
+        <img src="./images/rizoto-logo.png" alt="Rižoto Bar" style="width: 132%; height: 132%; object-fit: contain;">
+      </a>
+      <div style="display: flex; align-items: center; gap: 40px; color: #f4f0e9; margin-right: 40px;">
+        <div style="display: flex; align-items: center; gap: 34px;">
+          <a href="index.html#about" class="lbl rz-link" style="font-size: 11px;">O nama</a>
+          <a href="meni.html" class="lbl rz-link" style="font-size: 11px;">Meni</a>
+          <a href="index.html#space" class="lbl rz-link" style="font-size: 11px;">Galerija</a>
+          <a href="index.html#reserve" class="lbl rz-link" style="font-size: 11px;">Lokacija</a>
+          <a href="https://www.instagram.com/rizoto.bg/?hl=en" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-flex; align-items: center; color: #f4f0e9;">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2.5" y="2.5" width="19" height="19" rx="5.2"></rect>
+              <circle cx="12" cy="12" r="4.2"></circle>
+              <circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div style="position: absolute; left: 52px; top: 0; bottom: 0; z-index: 10; display: flex; flex-direction: column; justify-content: center; color: #f4f0e9; max-width: 640px;">
+      <div style="position: relative;">
+        <h1 style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 130px; line-height: 0.9; letter-spacing: 0.03em; margin: 0;">meni</h1>
+        <p style="position: absolute; top: 100%; left: 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.5; letter-spacing: 0.05em; margin-top: 30px; color: rgba(244,240,233,.92); width: 222px; height: 111px">Sveži sastojci<br>S LJUBAVLJU NAPRAVLJENO<br>ServiraNo s pažnjom</p>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div style="position: absolute; left: 0; right: 0; bottom: 34px; z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 12px; color: #f4f0e9;">
+      <span class="lbl" style="font-size: 10px; opacity: .8;">Scroll to discover</span>
+      <span style="width: 1px; height: 34px; background: rgba(244,240,233,.6);"></span>
+    </div>
+
+  </section>
+
+  <!-- ===== STICKY CATEGORY NAV ===== -->
+  <nav style="position: sticky; top: 0; z-index: 50; background: #f2efe8; border-bottom: 1px solid rgba(41,36,31,.12);">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; gap: 46px; padding: 22px 52px;">
+      <a id="nav-dorucak" href="#dorucak" class="lbl" style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.06em; color: rgba(41,36,31,.42); transition: color .3s ease;">Doručak</a>
+      <a id="nav-rizota" href="#rizota" class="lbl" style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.06em; color: rgba(41,36,31,.42); transition: color .3s ease;">Rižota</a>
+      <a id="nav-lazanje" href="#lazanje" class="lbl" style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.06em; color: rgba(41,36,31,.42); transition: color .3s ease;">Lazanje i potaži</a>
+      <a id="nav-dezerti" href="#dezerti" class="lbl" style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.06em; color: rgba(41,36,31,.42); transition: color .3s ease;">Dezerti</a>
+    </div>
+  </nav>
+
+  <!-- ===== DORUČAK ===== -->
+  <section id="dorucak" style="scroll-margin-top: 70px; padding: 96px 52px 80px;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <h2 data-reveal="" style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 64px; line-height: 0.95; letter-spacing: 0.03em; opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease;">Doručak</h2>
+      <div data-stagger-group="" style="margin-top: 48px; max-width: 820px;">
+        <div data-reveal-item="" style="padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Kajgana</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">590</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Kajgana na fokači sa parmezanom, mix salate i čeri paradajz</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Omlet</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">550</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Omlet, domaća fokača, mix salate</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <p class="lbl" style="font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 0.12em; color: #6f675b; margin-bottom: 10px; margin-top: 25px">Omlet dodaci</p>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.9; color: #8a8175; max-width: 620px;">Mix povrća 130&nbsp;&nbsp;·&nbsp;&nbsp;Mocarela 150&nbsp;&nbsp;·&nbsp;&nbsp;Spanać 110&nbsp;&nbsp;·&nbsp;&nbsp;Pančeta 170&nbsp;&nbsp;·&nbsp;&nbsp;Sušeni paradajz 120&nbsp;&nbsp;·&nbsp;&nbsp;Krem sir / pesto / tartuf 100 / 150 / 180</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREAK IMAGE -->
+  <div data-reveal-img="" style="width: 100%; height: 56vh; min-height: 380px; overflow: hidden; opacity: 0; transform: scale(1.05); transition: opacity 1s ease, transform 1.2s ease;">
+    <image-slot id="break-1" shape="rect" fit="cover" placeholder="Lifestyle fotografija 1"></image-slot>
+  </div>
+
+  <!-- ===== RIŽOTA ===== -->
+  <section id="rizota" style="scroll-margin-top: 70px; padding: 96px 52px 80px;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <h2 data-reveal="" style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 64px; line-height: 0.95; letter-spacing: 0.03em; opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease;">Rižoto</h2>
+      <div data-stagger-group="" style="margin-top: 48px; max-width: 820px;">
+        <div data-reveal-item="" style="padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Aurora</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">850</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Piletina, svež paradajz, brokoli, beli luk, dupli parmezan, semenke suncokreta, puter, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Isabella</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">790</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Mocarela, gorgonzola, parmezan, beli krem, puter, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Giovanna</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">860</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Gorgonzola, orasi, piletina, beli luk, beli krem, puter, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Bianca</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">790</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Brokoli, tikvice, šargarepa, crni luk, beli luk, parmezan, belo vino, semenke suncokreta, beli krem, puter, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Alessandra</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">860</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Piletina, brokoli, tikvice, šargarepa, crni luk, beli luk, parmezan, beli krem, puter, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Paola</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">840</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Šampinjoni, piletina, crni luk, beli luk, parmezan, peršun, beli krem, puter, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Monica</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">870</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Vrganji, piletina, parmezan, crni luk, beli luk, peršun, belo vino, beli krem, puter, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Matilda</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">870</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Tartufi, šampinjoni, beli luk, belo vino, parmezan, peršun, beli krem, puter, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Elisa</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">820</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Domaći pesto genovese, piletina, parmezan, beli luk, beli krem, maslinovo ulje, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Olivia</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">820</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Spanać, piletina, beli luk, parmezan, beli krem, puter, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Vittoria</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">900</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Plodovi mora, paradajz pelat, crveni luk, beli luk, peršun, belo vino, maslinovo ulje, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Ruby</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">850</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Paradajz pelat, piletina, tikvica, šargarepa, brokoli, beli luk, peršun, maslinovo ulje, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Greta</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">790</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Paradajz pelat, brokoli, šargarepa, celer štap, crni luk, beli luk, belo vino, peršun, maslinovo ulje, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Carlotta</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">830</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Kurkuma, piletina, šargarepa, celer štap, tikvica, beli luk, beli krem, peršun, maslinovo ulje, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Maria</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">830</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Kari, piletina, šargarepa, celer štap, crni luk, beli luk, beli krem, peršun, maslinovo ulje, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Rebecca</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">1090</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Dugo kuvana junetina u sosu od povrća i koštane srži, crni luk, vlašac, parmezan, puter, pirinač</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Sofia</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">830</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Crni kraljevski pirinač, hrskava piletina, terijaki sos, mix salata sa slatko-slanim sosom od voća i povrća</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Nera</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">1190</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Crni kraljevski pirinač, sušeni paradajz, terijaki sos, losos, tikvice, celer štap, beli luk, vlašac, puter</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Nina</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">950</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Piletina, sušeni paradajz, tikvice, grilovani mladi kozji sir, puter, pirinač</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREAK IMAGE -->
+  <div data-reveal-img="" style="width: 100%; height: 56vh; min-height: 380px; overflow: hidden; opacity: 0; transform: scale(1.05); transition: opacity 1s ease, transform 1.2s ease;">
+    <image-slot id="break-2" shape="rect" fit="cover" placeholder="Lifestyle fotografija 2" src="./images/xxkj-ms64d2vo-pmc4.jpg"></image-slot>
+  </div>
+
+  <!-- ===== LAZANJE I POTAŽI ===== -->
+  <section id="lazanje" style="scroll-margin-top: 70px; padding: 96px 52px 80px;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <h2 data-reveal="" style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 64px; line-height: 0.95; letter-spacing: 0.03em; opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease;">Lazanje i potaži</h2>
+      <div data-stagger-group="" style="margin-top: 48px; max-width: 820px;">
+        <div data-reveal-item="" style="padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Lasagna</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">890</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Hrskava lazanja sa mlevenim mesom, bešamel, pelat, začinjena pavlaka sa limunovom korom i pesto sosom</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Potaž</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">350</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Šargarepa, đumbir, maslinovo ulje, semenke suncokreta</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREAK IMAGE -->
+  <div data-reveal-img="" style="width: 100%; height: 56vh; min-height: 380px; overflow: hidden; opacity: 0; transform: scale(1.05); transition: opacity 1s ease, transform 1.2s ease;">
+    
+  <image-slot id="break-3" shape="rect" fit="cover" placeholder="Lifestyle fotografija 3" src="./images/ss-ms642hrq-n854.jpg"></image-slot></div>
+
+  <!-- ===== DEZERTI ===== -->
+  <section id="dezerti" style="scroll-margin-top: 70px; padding: 96px 52px 100px;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <h2 data-reveal="" style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 64px; line-height: 0.95; letter-spacing: 0.03em; opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease;">Dezerti</h2>
+      <div data-stagger-group="" style="margin-top: 48px; max-width: 820px;">
+        <div data-reveal-item="" style="padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Filippo Pippo</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">320</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Pirinač u kremastom mleku sa cimetom</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Gattuso</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">350</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Pirinač u kremastom mleku – urme, banane, vanila</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Balotelli</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">350</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Pirinač u kremastom mleku – nutela, plazma</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Buffon</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">350</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Kolač od maka sa belom čokoladom i sosom od malina</p>
+        </div>
+        <div data-reveal-item="" style="padding-top: 0px; padding-bottom: 26px; opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;">
+          <div style="display: flex; align-items: baseline; gap: 18px;">
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: 0.03em;">Tiramisu</span>
+            <span style="flex: 1; border-bottom: 1px dotted rgba(41,36,31,.32); transform: translateY(-6px);"></span>
+            <span style="font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.03em;">390</span>
+          </div>
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; line-height: 1.35; color: #8a8175; margin-top: 4px; max-width: 520px;">Italijanski klasik za savršen dan</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="background: #29241f; color: #ece7dd; padding: 24px 52px;">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+      <a href="index.html" class="lbl" style="font-size: 10px; color: #8f877b; border-bottom: 1px solid rgba(143,135,123,.5); padding-bottom: 4px;">Nazad na početnu</a>
+      <p class="lbl" style="font-size: 10px; color: #8f877b;">© 2026 ILUMAMEDIA. SVA PRAVA ZADRŽANA.</p>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        if (el.hasAttribute('data-stagger-group')) {
+          const items = Array.from(el.querySelectorAll('[data-reveal-item]'));
+          items.forEach((it, i) => {
+            it.style.transitionDelay = (i * 110) + 'ms';
+            it.style.opacity = '1';
+            it.style.transform = 'none';
+          });
+        } else {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }
+        io.unobserve(el);
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('[data-reveal], [data-stagger-group], [data-reveal-img]').forEach((el) => io.observe(el));
+
+    const cats = ['dorucak', 'rizota', 'lazanje', 'dezerti'];
+    const navEl = {};
+    cats.forEach((c) => { navEl[c] = document.getElementById('nav-' + c); });
+    const secIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        cats.forEach((c) => { if (navEl[c]) navEl[c].style.color = 'rgba(41,36,31,.42)'; });
+        const id = e.target.id;
+        if (navEl[id]) navEl[id].style.color = '#29241F';
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    cats.forEach((c) => { const s = document.getElementById(c); if (s) secIO.observe(s); });
+
+    const hash = (window.location.hash || '').slice(1);
+    if (hash) {
+      const scrollToHash = () => {
+        const t = document.getElementById(hash);
+        if (t) {
+          const y = t.getBoundingClientRect().top + window.pageYOffset - 60;
+          window.scrollTo(0, y);
+        }
+      };
+      requestAnimationFrame(() => { scrollToHash(); setTimeout(scrollToHash, 250); });
+    }
+  }
+}
+</script>
+</body>
+</html>
